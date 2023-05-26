@@ -25,3 +25,14 @@ amount int not null,
 discount int not null,
 primary key(id)
 );
+6. create table users (
+   id int auto_increment,
+   email varchar(100) not null,
+   user varchar(50) not null,
+   pass varchar(256) not null,
+   status int default 0,
+   privilege varchar(50) not null,
+   primary key(id)
+   );
+
+## Directory Structure and PDO connection
