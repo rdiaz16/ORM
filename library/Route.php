@@ -22,15 +22,52 @@ class Route {
            if($res != "" && $res ==1){//checking
                foreach($this->_controllers as $route=>$controller){//driving through the controllers
                    if($route == "/") {//check that the routes are the same
-                       $con = $controller;//assign the controller to a variable
+                       $control = $controller;//assign the controller to a variable
                    }
                }
                //echo $con;
-               $this->getController();
+               $this->getController("index",$control);//call the method that recovers the controller
            }
        }else{
            //controllers and methods
 
        }
+    }
+    public function getController($method,$control){
+        $methodController = "";//method
+        //check method or function if is index or not
+        if($method == "index" || $method==""){
+            $methodController = "index";
+        }else{
+            $methodController =$method;
+        }
+        //the controller is included
+        $this->includeController($control);
+        //check that the clas exists
+        if(class_exists($control)){
+            //a temporary class is created based on the controller variable = (MainController)
+            $ClassTemp = new $control();
+            //check if you can call the function or method of that class
+           if(is_callable(array($ClassTemp,$methodController))){
+                //echo "success";
+                //call to the method of that class
+               //class->index();
+               $ClassTemp->$methodController();
+           }else{
+               die("the method does not exist");
+           }
+        }else{
+            die("the class does not exist");;
+        }
+
+    }
+    public function includeController($control){
+        //validating if the file exists
+        if(file_exists(APP_ROUTE."controller/".$control.".php")){
+            //if it exists is included
+            include APP_ROUTE."controller/".$control.".php";
+        }else{
+            die("error finding controller file");
+        }
     }
 }
