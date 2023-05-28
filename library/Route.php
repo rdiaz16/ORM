@@ -30,7 +30,21 @@ class Route {
            }
        }else{
            //controllers and methods
-
+           $status = false;
+            foreach($this->_controllers as $route=>$cont){
+               if(trim($route,"/") == $paths[0]){
+                $status = true;
+                   $con = $cont;
+                   $method= "";
+                   if(count($paths)>1){
+                    $method = $paths[1];
+                   }
+                   $this->getController($method,$con);
+               }
+           }
+           if($status == false){
+               die("error route");
+           }
        }
     }
     public function getController($method,$control){
