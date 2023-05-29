@@ -1,9 +1,9 @@
 <?php
 
-
+use view\View;
 class UserController {
     public function index(){
-        echo "root project";
+       return View::create("users.list");
     }
     public function insert(){
         echo "inserted correctly";
