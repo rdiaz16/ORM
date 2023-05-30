@@ -1,4 +1,5 @@
 <?php
+echo json_encode($users);
 ?>
 <!doctype html>
 <html lang="en">
