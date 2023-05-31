@@ -9,8 +9,8 @@ define("MODELS",APP_ROUTE."model/");
 //echo ROUTE;
 //configuration
 include BASE_ROUTE."config/config.php";
-include LIBRARY."ORM/Connection.php";
-include "ORM/RdORM.php";
+require_once ("ORM/Connection.php");
+require_once "ORM/RdORM.php";
 include "ORM/Model.php";
 
 
