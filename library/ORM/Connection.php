@@ -1,5 +1,5 @@
 <?php
-include "../config/config.php";
+
 class Connection {
     public static function connect(){
         try {
