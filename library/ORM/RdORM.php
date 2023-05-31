@@ -3,6 +3,6 @@
 namespace library\ORM;
 
 
-class RdORM {
+class RdORM extends \Connection{
 
 }
