@@ -4,7 +4,7 @@
 namespace library\ORM;
 
 
-class Model {
+class Model extends RdORM {
     //property that will contain all properties dynamically
     private $data=array();
 
