@@ -1,30 +1,19 @@
 <?php
 
 use view\View;
+use App\model\User;
+
 class UserController {
     public function index(){
-        $users = array(
-            1=>array(
-                "name"=>"Ricardo",
-                "lastname"=>"Diaz",
-            ),
-            2=>array(
-                "name"=>"Ricardo",
-                "lastname"=>"Diaz",
-            ),
-            3=>array("name"=>"Ricardo",
-                "lastname"=>"Diaz",
-            ),
-            4=>array("name"=>"Ricardo",
-                "lastname"=>"Diaz",
-            )
-        );
-       //return View::create("users.list","users",$users);
-        return View::create("users.list","users",array(
-            "users"=>$users,
-        ));
+
+        $user =new User();
+        $user->name = "Ricardo";
+        $user->lastname = "Diaz";
+
+        echo $user->name;
+
     }
     public function insert(){
-        echo "inserted correctly";
+
     }
 }
