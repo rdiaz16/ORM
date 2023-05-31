@@ -11,6 +11,7 @@ class UserController {
         $user->lastname = "Diaz";
 
         echo $user->name;
+        //$user->getTable();
 
     }
     public function insert(){
