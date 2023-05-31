@@ -2,6 +2,6 @@
 
 class MainController {
     public function  index(){
-        echo "test index";
+       // echo "test index";
     }
 }
